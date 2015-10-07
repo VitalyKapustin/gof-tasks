@@ -1,10 +1,10 @@
-package com.gof.iteration1;
+package com.gof.iteration1.factory;
 
 import com.gof.customer.RemoteOutputAPI;
 
 /**
  * Used a singleton approach offered by Bill Pugh
- * Lazy singleton factory method
+ * Lazy singleton factory method pattern (1st variant)
  * Created by vkapustin on 28.09.15.
  */
 public class RemoteOutputAPIFactoryImpl implements RemoteOutputAPIFactory {
