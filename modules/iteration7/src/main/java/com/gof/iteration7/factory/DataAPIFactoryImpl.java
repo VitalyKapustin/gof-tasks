@@ -8,12 +8,18 @@ import java.util.Random;
 /**
  * Created by vkapustin on 06.10.2015.
  */
-public class LightDataAPIFactory implements DataAPIFactory {
+public class DataAPIFactoryImpl implements DataAPIFactory {
 
     private Random random = new Random();
 
     @Override
-    public DataAPI create() {
+    public DataAPI createHeavyDataAPI() {
+        return new DataAPI(Math.abs(random.nextLong()), TypeOfData.LIVE, String.valueOf(Math.abs(random.nextInt())), String.valueOf(Math.abs(random.nextInt())),
+                String.valueOf(Math.abs(random.nextInt())), String.valueOf(Math.abs(random.nextInt())));
+    }
+
+    @Override
+    public DataAPI createLightDataAPI() {
         String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 10; i++) {

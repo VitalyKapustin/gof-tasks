@@ -8,18 +8,16 @@ import com.gof.customer.core.DataAPI;
  */
 public class RemoteOutputAPIAcronisFacade {
 
-    private RemoteOutputAPIAcronis api = new RemoteOutputAPIAcronis();
-
     public void setOutputData(DataAPI data) {
-        api.initSystem();
-        api.preparingConnection();
-        api.connect();
-        api.sendMX(data.getDataMX());
-        api.sendSX(data.getDataSX());
-        api.sendBX(data.getDataBX());
-        api.sendFX(data.getDataFX());
-        api.stopSystem();
-        api.checkErrors();
-        api.disconnect();
+        RemoteOutputAPIAcronis.initSystem();
+        RemoteOutputAPIAcronis.preparingConnection();
+        RemoteOutputAPIAcronis.connect();
+        RemoteOutputAPIAcronis.sendMX(data.getDataMX());
+        RemoteOutputAPIAcronis.sendSX(data.getDataSX());
+        RemoteOutputAPIAcronis.sendBX(data.getDataBX());
+        RemoteOutputAPIAcronis.sendFX(data.getDataFX());
+        RemoteOutputAPIAcronis.stopSystem();
+        RemoteOutputAPIAcronis.checkErrors();
+        RemoteOutputAPIAcronis.disconnect();
     }
 }

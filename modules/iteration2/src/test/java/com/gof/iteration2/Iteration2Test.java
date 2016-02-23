@@ -18,8 +18,8 @@ public class Iteration2Test {
     @Before
     public void init() {
         /* create processor chain of responsibility for DataAPI */
-        dataAPIProcessor = new LiveDataAPIProcessor()
-                .setNext(new PreparedDataAPIProcessor())
+        dataAPIProcessor = new LiveDataAPIProcessor();
+        dataAPIProcessor.setNext(new PreparedDataAPIProcessor())
                 .setNext(new FakeDataAPIProcessor())
                 .setNext(new ErrDataAPIProcessor());
     }

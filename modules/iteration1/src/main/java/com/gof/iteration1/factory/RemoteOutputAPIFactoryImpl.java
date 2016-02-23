@@ -9,7 +9,7 @@ import com.gof.customer.RemoteOutputAPI;
  */
 public class RemoteOutputAPIFactoryImpl implements RemoteOutputAPIFactory {
 
-    private RemoteOutputAPI remoteOutputAPI;
+    private volatile RemoteOutputAPI remoteOutputAPI;
 
     private static class SingletonHolder {
         public static final RemoteOutputAPIFactoryImpl INSTANCE = new RemoteOutputAPIFactoryImpl();

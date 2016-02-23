@@ -5,9 +5,27 @@ package com.gof.iteration8.builder;
  */
 public class DataBDataAPIBuilder extends DataAPIBuilder {
 
+    public DataBDataAPIBuilder(Long id) {
+        super(id);
+    }
+
     @Override
-    public void build() {
-        dataAPI.setDataFX(getRandomString());
-        dataAPI.setDataBX(getRandomString());
+    protected boolean validateDataMX(String data) {
+        return true;
+    }
+
+    @Override
+    protected boolean validateDataSX(String data) {
+        return true;
+    }
+
+    @Override
+    protected boolean validateDataFX(String data) {
+        return validateString(data);
+    }
+
+    @Override
+    protected boolean validateDataBX(String data) {
+        return validateString(data);
     }
 }

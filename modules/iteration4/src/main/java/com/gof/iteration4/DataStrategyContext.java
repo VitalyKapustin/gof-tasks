@@ -1,6 +1,5 @@
 package com.gof.iteration4;
 
-import com.gof.customer.data.TypeOfData;
 import com.gof.iteration4.strategy.DataStrategy;
 
 /**
@@ -14,7 +13,7 @@ public class DataStrategyContext {
         this.dataStrategy = dataStrategy;
     }
 
-    public String executeStrategy(String data, TypeOfData dataType) {
-        return dataStrategy.execute(data, dataType);
+    public String executeStrategy(String data) {
+        return dataStrategy.execute(data);
     }
 }

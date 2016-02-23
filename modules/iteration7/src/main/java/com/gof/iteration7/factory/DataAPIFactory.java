@@ -7,5 +7,7 @@ import com.gof.customer.core.DataAPI;
  */
 public interface DataAPIFactory {
 
-    public DataAPI create();
+    public DataAPI createHeavyDataAPI();
+
+    public DataAPI createLightDataAPI();
 }
