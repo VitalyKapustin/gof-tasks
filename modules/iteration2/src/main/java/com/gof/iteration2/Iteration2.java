@@ -12,16 +12,19 @@ public class Iteration2 {
 
     public static void run() {
         /* create processor chain of responsibility for DataAPI */
-        DataAPIProcessor dataAPIProcessor = new LiveDataAPIProcessor()
-                .setNext(new PreparedDataAPIProcessor())
-                .setNext(new FakeDataAPIProcessor())
-                .setNext(new ErrDataAPIProcessor());
+        DataAPIProcessor liveDataAPIProcessor = new LiveDataAPIProcessor();
+        DataAPIProcessor preparedDataAPIProcessor = new PreparedDataAPIProcessor();
+        DataAPIProcessor fakeDataAPIProcessor = new FakeDataAPIProcessor();
+        DataAPIProcessor errDataAPIProcessor = new ErrDataAPIProcessor();
+        liveDataAPIProcessor.setNext(preparedDataAPIProcessor);
+        preparedDataAPIProcessor.setNext(fakeDataAPIProcessor);
+        fakeDataAPIProcessor.setNext(errDataAPIProcessor);
 
         /* use them */
         Channel1 channel1 = new Channel1();
         RemoteOutputAPI remoteOutputAPI = new RemoteOutputAPI();
         channel1.getDataAPI().stream().forEach(data -> {
-            dataAPIProcessor.process(data);
+            liveDataAPIProcessor.process(data);
             remoteOutputAPI.setOutputData(data);
         });
     }

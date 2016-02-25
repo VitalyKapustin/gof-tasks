@@ -19,9 +19,12 @@ public class Iteration2Test {
     public void init() {
         /* create processor chain of responsibility for DataAPI */
         dataAPIProcessor = new LiveDataAPIProcessor();
-        dataAPIProcessor.setNext(new PreparedDataAPIProcessor())
-                .setNext(new FakeDataAPIProcessor())
-                .setNext(new ErrDataAPIProcessor());
+        DataAPIProcessor preparedDataAPIProcessor = new PreparedDataAPIProcessor();
+        DataAPIProcessor fakeDataAPIProcessor = new FakeDataAPIProcessor();
+        DataAPIProcessor errDataAPIProcessor = new ErrDataAPIProcessor();
+        dataAPIProcessor.setNext(preparedDataAPIProcessor);
+        preparedDataAPIProcessor.setNext(fakeDataAPIProcessor);
+        fakeDataAPIProcessor.setNext(errDataAPIProcessor);
     }
 
     @Test
